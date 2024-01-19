@@ -1,15 +1,44 @@
-# Banking_System
-Implemented a banking system with multilevel inheritance and customer filtering in java
-## Problem Statement
-Create an abstract class called Account which serves as the base class for SavingsAccount and CurrentAccount. The Account class provides common functionality like account holder name, balance, deposit, and abstract method withdraw, which must be implemented by the derived classes. The SavingsAccount class represents a savings account and has an additional static variable interestRate to store the interest rate. The withdraw method is overridden to check if the balance is sufficient before performing the withdrawal. For insufficient fund raise an exception “insufficientfund”. The CurrentAccount class represents a current account and has an additional static variable overdraftLimit to store the overdraft limit. The withdraw
-method is also overridden to consider the overdraft limit when determining if a withdrawal is allowed. For insufficient fund raise an exception “insufficientfund”.
-The Bank class is the main class that creates objects of SavingsAccount and CurrentAccount, performs various operations like deposits, withdrawals, and interest
-calculations, and displays the balances.
+# Bank Management System
+## Overview
+This Java program represents a simple Bank Management System that includes three classes - Account, SavingsAccount, and CurrentAccount. The main functionality is encapsulated in these classes, and the central management is handled by the Bank class.
 
-1. demonstrate the multilevel (3 levels) inheritance in the given problem
-statement. (Consider required data in the given problem statement)
-2. Print the names of all the customers whose name starts with “A” (make use of
-string method startsWith(String prefix)).
-## Approach
-Created seperate classes Account,Savings Account, Current Account and main class Bank. Implemented method overriding by creating various methods like withdraw, deposit, get balance and exception handling by creadted a Insuffienct fund exception class and handling it using try catch block. Then lastly using all the class methods in bank class by calling them through objects and testing through various test cases. 
+## Classes
+### 1. Account
+The Account class is an abstract class serving as the base for all account types. It includes basic attributes such as accountHolderName and balance. Key methods include:
+
+getAccountHolderName(): Retrieves the account holder's name.
+getBalance(): Retrieves the current balance.
+deposit(double amount): Adds the specified amount to the account balance.
+withdraw(double amount): An abstract method representing the withdrawal functionality. Specific implementations are provided in subclasses.
+### 2. SavingsAccount
+The SavingsAccount class is a subclass of Account, representing a savings account. It includes features like:
+
+setInterestRate(double rate): Sets the interest rate for the savings account.
+getInterestRate(): Retrieves the interest rate.
+withdraw(double amount): Overrides the withdraw method from the base class to include specific logic for savings accounts, checking for sufficient funds.
+### 3. CurrentAccount
+Similar to SavingsAccount, CurrentAccount is a subclass of Account representing a current account. It includes features like:
+
+setOverdraftLimit(double limit): Sets the overdraft limit for the current account.
+getOverdraftLimit(): Retrieves the overdraft limit.
+withdraw(double amount): Overrides the withdraw method from the base class to include specific logic for current accounts, allowing for overdrafts.
+### 4. InsufficientFundException
+This is a custom exception class that extends Exception. It is thrown when a withdrawal operation is attempted with insufficient funds in the account.
+
+### 5. Bank
+The Bank class serves as the main driver class, handling a collection of Account objects and providing methods for:
+
+Adding accounts to the bank.
+Depositing amounts into specific accounts.
+Managing exceptions during withdrawal operations.
+##Usage
+To use this Bank Management System:
+
+1. Create instances of SavingsAccount and CurrentAccount.
+2. Set specific parameters like interest rates and overdraft limits.
+3. Add these accounts to the Bank using the addAccount method.
+4. Perform operations like deposits and withdrawals through the Bank class methods.
+5. Test different scenarios, including edge cases, to ensure the robustness of the system.
+
+   This basic functionality of the Bank Management System, includes account creation, parameter setting, deposit, and withdrawal operations, along with exception handling.The program demonstrates the principles of object-oriented programming, emphasizing method overriding, encapsulation, and exception handling. The modular design allows for easy extension to accommodate additional account types or features. By utilizing the provided classes and methods, users can simulate various banking operations, such as deposits and withdrawals, while handling exceptions like insufficient funds gracefully. This system serves as a foundation for understanding and implementing more complex banking systems, offering a practical example of Java programming principles in a real-world context.
 
